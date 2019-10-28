@@ -2,12 +2,12 @@
 
 static void print_values(t_data *data)
 {
-	//int	index = 0;
+	int	index = 0;
 
 	ft_putstr("average value = ");
 	printf("%f", data->average);
 	fflush(stdout);
-	/*ft_putchar('\n');
+	ft_putchar('\n');
 	ft_putendl("Population values :");
 	while (index < data->quantity)
 	{
@@ -16,7 +16,7 @@ static void print_values(t_data *data)
 		// ft_putnbr(data->population[index]);
 		// ft_putchar('|');
 		index++;
-	}*/
+	}
 	ft_putchar('\n');
 }
 
@@ -61,7 +61,7 @@ void	learn(t_data *data)
 		data->average = (float)sum / (float)data->quantity;
 		sum = 0;
 		print_values(data);
-		//usleep(10000);
+		usleep(10000);
 		loop++;
 	}
 

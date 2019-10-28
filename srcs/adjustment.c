@@ -26,12 +26,25 @@ static void	upper_of_the_next(t_data *data, int index, int next)
 
 void	adjustment(t_data *data, int index, int previous, int next)
 {
-	if (data->population[index] < data->population[previous])
-		lower_of_the_previous(data, index, previous);
-	else if (data->population[index] > data->population[previous])
-		upper_of_the_previous(data, index, previous);
-	if (data->population[index] < data->population[next])
-		lower_of_the_next(data, index, next);
-	else if (data->population[index] > data->population[next])
-		upper_of_the_next(data, index, next);
+	if (abs(data->population[index] - data->population[previous]) < abs(data->population[index] - data->population[next]))
+	{
+		if (data->population[index] < data->population[previous])
+			lower_of_the_previous(data, index, previous);
+		else if (data->population[index] > data->population[previous])
+			upper_of_the_previous(data, index, previous);
+	}
+	else if (abs(data->population[index] - data->population[previous]) > abs(data->population[index] - data->population[next]))
+	{
+		if (data->population[index] < data->population[next])
+			lower_of_the_next(data, index, next);
+		else if (data->population[index] > data->population[next])
+			upper_of_the_next(data, index, next);
+	}
+	else if (data->population[previous] == data->population[next])
+	{
+		if (data->population[index] < data->population[previous])
+			lower_of_the_previous(data, index, previous);
+		else if (data->population[index] > data->population[previous])
+			upper_of_the_previous(data, index, previous);
+	}	
 }
