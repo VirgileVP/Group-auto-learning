@@ -1,5 +1,10 @@
 #include "auto-learning.h"
 
+/*
+** print_value :
+** print average value and all population values
+*/
+
 static void print_values(t_data *data)
 {
 	int	index = 0;
@@ -20,6 +25,11 @@ static void print_values(t_data *data)
 	ft_putchar('\n');
 }
 
+/*
+** set_previosu_neighbour :
+** return value of previous person
+*/
+
 static int	set_previous_neighbour(t_data *data, int actual, int previous)
 {
 	if (actual == 0)
@@ -29,6 +39,11 @@ static int	set_previous_neighbour(t_data *data, int actual, int previous)
 	return (previous);
 }
 
+/*
+** set_next_neighbour :
+** return value of next person
+*/
+
 static int	set_next_neighbour(t_data *data, int actual, int next)
 {
 	if (actual == 0)
@@ -37,6 +52,11 @@ static int	set_next_neighbour(t_data *data, int actual, int next)
 		next = 0;
 	return (next);
 }
+
+/*
+** learn :
+** browse the population and launch the adjustment function for each people
+*/
 
 void	learn(t_data *data)
 {

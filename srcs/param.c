@@ -1,5 +1,10 @@
 #include "auto-learning.h"
 
+/*
+** get_params :
+** get params from program arguments and put it in the struct
+*/
+
 int	get_params(t_data *data, char **av)
 {
 	data->quantity = ft_atoi(av[1]);
@@ -12,6 +17,11 @@ int	get_params(t_data *data, char **av)
 		return (-1);
 	return (1);
 }
+
+/*
+** set_population :
+** set all values in struct at default
+*/
 
 void	set_population(t_data *data)
 {

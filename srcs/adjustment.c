@@ -24,6 +24,11 @@ static void	upper_of_the_next(t_data *data, int index, int next)
 	data->population[index]--;
 }
 
+/*
+** adjustment :
+** adjust all values depending neighbour's values
+*/
+
 void	adjustment(t_data *data, int index, int previous, int next)
 {
 	if (abs(data->population[index] - data->population[previous]) < abs(data->population[index] - data->population[next]))

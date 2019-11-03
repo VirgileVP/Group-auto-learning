@@ -1,5 +1,10 @@
 #include "auto-learning.h"
 
+/*
+** usage :
+** print the usage of the program
+*/
+
 int	usage()
 {
 	ft_putendl("usage : ./auto_learn [population] [min limit] [max limit] [iteration]");
