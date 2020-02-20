@@ -26,34 +26,6 @@ static void print_values(t_data *data)
 }
 
 /*
-** set_previosu_neighbour :
-** return value of previous person
-*/
-
-static int	set_previous_neighbour(t_data *data, int actual, int previous)
-{
-	if (actual == 0)
-		previous = data->quantity - 1;
-	if (actual == data->quantity - 1)
-		previous = actual - 1;
-	return (previous);
-}
-
-/*
-** set_next_neighbour :
-** return value of next person
-*/
-
-static int	set_next_neighbour(t_data *data, int actual, int next)
-{
-	if (actual == 0)
-		next = actual + 1;
-	if (actual == data->quantity - 1)
-		next = 0;
-	return (next);
-}
-
-/*
 ** learn :
 ** browse the population and launch the adjustment function for each people
 */
@@ -72,9 +44,12 @@ void	learn(t_data *data)
 		while (index < data->quantity)
 		{
 			sum = sum + data->population[index];
-			previous_neighbour = set_previous_neighbour(data, index, previous_neighbour);
-			next_neighbour = set_next_neighbour(data, index, next_neighbour);
-			adjustment(data, index, previous_neighbour, next_neighbour);
+			previous_neighbour = get_previous_neighbour(data, index);
+			next_neighbour = get_next_neighbour(data, index);
+			if (data->algo == 1)
+				adjustment(data, index, previous_neighbour, next_neighbour);
+			else
+				adjustment_v2(data, index);
 			index++;
 		}
 		index = 0;

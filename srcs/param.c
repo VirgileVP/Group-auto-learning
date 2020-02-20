@@ -11,6 +11,9 @@ int	get_params(t_data *data, char **av)
 	data->population = ft_memalloc(sizeof(int) * data->quantity + 1);
 	data->min = ft_atoi(av[2]);
 	data->max = ft_atoi(av[3]);
+	data->algo = ft_atoi(av[5]);
+	if (data->algo < 1 || data->algo > 2)
+		return (-1);
 	data->average = 0;
 	data->iteration = ft_atoi(av[4]);
 	if (data->min >= data->max)

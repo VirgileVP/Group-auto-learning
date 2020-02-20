@@ -53,3 +53,20 @@ void	adjustment(t_data *data, int index, int previous, int next)
 			upper_of_the_previous(data, index, previous);
 	}	
 }
+
+void	adjustment_v2(t_data *data, int index)
+{
+	int	sum;
+	int	n_inf2;
+	int	n_inf1;
+	int	n_plus1;
+	int	n_plus2;
+
+	sum = 0;
+	n_inf1 = data->population[get_previous_neighbour(data, index)];
+	n_inf2 = data->population[get_previous_neighbour(data, n_inf1)];
+	n_plus1 = data->population[get_next_neighbour(data, index)];
+	n_plus2 = data->population[get_next_neighbour(data, n_plus1)];
+	sum = n_inf1 + n_inf2 + n_plus1 + n_plus2;
+	data->population[index] = sum / 4;
+}

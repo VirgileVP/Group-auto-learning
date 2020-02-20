@@ -7,7 +7,7 @@
 
 int	usage()
 {
-	ft_putendl("usage : ./auto_learn [population] [min limit] [max limit] [iteration]");
+	ft_putendl("usage : ./auto_learn [population] [min limit] [max limit] [iteration] [algo (1-2)]");
 	return (-1);
 }
 
@@ -15,7 +15,7 @@ int	main(int ac, char **av)
 {
 	t_data data;
 	
-	if (ac != 5)
+	if (ac != 6)
 		return (usage());
 	if (get_params(&data, av) == -1)
 	{

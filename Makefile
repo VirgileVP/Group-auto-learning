@@ -12,6 +12,7 @@ SRC_DIR = ./srcs/
 SRC = main.c \
 	  param.c \
 	  learn.c \
+	  tools.c \
 	  adjustment.c
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
